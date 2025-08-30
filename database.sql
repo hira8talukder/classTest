@@ -1,0 +1,13 @@
+CREATE TABLE genres (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name VARCHAR(255) NOT NULL UNIQUE
+);
+
+CREATE TABLE books (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title VARCHAR(255) NOT NULL,
+    author VARCHAR(255) NOT NULL,
+    genre_id INTEGER,
+    is_available BOOLEAN DEFAULT TRUE,
+    FOREIGN KEY (genre_id) REFERENCES genres(id)
+);
